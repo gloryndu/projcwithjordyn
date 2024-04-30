@@ -12,3 +12,12 @@ cv2.imread("").shape
 
 train = ImageDataGenerator(rescale= 1/255)
 vaildation = ImageDataGenerator(rescale= 1/255)
+
+train_dataset = train.flow_from_directory("", 
+                                          target_size=(200,200),
+                                          batch_size = 3,
+                                          class_mode="binary")
+vaildation_dataset = train.flow_from_directory("", 
+                                          target_size=(200,200),
+                                          batch_size = 3,
+                                          class_mode="binary")
