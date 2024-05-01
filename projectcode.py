@@ -46,3 +46,19 @@ model_fit = model.fit(train_dataset,
                       step_per_epoch = 3,
                       epochs = 30,
                       validation_data = vaildation_dataset)
+
+dir_path = ""
+
+for i in os.listdir(dir_path):
+    img =image.load_img(dir_path+"//"+i,target_size=(200,200))
+    plt.imshow(img)
+    plt.show()
+
+    X = image.img_to_array(img)
+    X = np.expand_dims(X, axis=0)
+    images = np.vstack([X])
+    val = model.predict(images)
+    if val == 0:
+        print('not AI')
+    else:
+        print("AI")
