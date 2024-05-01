@@ -37,3 +37,12 @@ model = tf.keras.models.Sequential([tf.keras.layers.Conv2D(16,(3,3), activation 
                                     ##
                                     tf.keras.layers.Dense(1,activation='sigmoid')
                                     ])
+
+model.compile(loss = "binary_crossentrophy",
+              optimizer = RMSprop(lr=0.001),
+              metrics= ['accuracy'])
+
+model_fit = model.fit(train_dataset,
+                      step_per_epoch = 3,
+                      epochs = 30,
+                      validation_data = vaildation_dataset)
